@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo list</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Todo list</h1>
+        <form action="/" method="POST" autocomplete="off">
+            <div class="input-container">           
+                <input type="text" placeholder="Add todos..." name="todoValue" required>
+                <button type="submit">
+                    <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-button-plus-icon-png-image_3566853.jpg" width="25" height="25" alt="Add">
+                </button>
+            </div>
+        </form>
+
+        <% if(data) { %>
+            <% data.forEach(todoValue => { %>
+                <div class="todo-container">
+                    <div class="todo-value"><%= todoValue.todo %></div>
+                    <div>
+                        <a class="todo-delete <%= todoValue.id %>">
+                            <img src="https://png.pngtree.com/png-vector/20190531/ourlarge/pngtree-trash-bin-icon-png-image_1252339.jpg" width="25" height="25" alt="Add">
+                        </a>
+                    </div>
+                </div>
+            <% }) %>
+        <% } %>        
+    </div>
+    <script>
+
+    const deleteButtons = document.querySelectorAll(".todo-delete");
+
+    deleteButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const endPoint = `/${button.classList[1]}`;
+            fetch(endPoint, {
+                method: "DELETE",
+            })
+            .then(() => {
+                const todoContainer = button.closest(".todo-container");
+                todoContainer.remove();
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+    });
+});
+    </script>
+</body>
+</html>

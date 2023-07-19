@@ -1,0 +1,90 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: lightgray;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.input-container {
+    display: flex;
+    column-gap: 10px;
+
+}
+
+.container h1 {
+    color: black;
+    padding: 3rem;
+    font-size: 3rem;
+}
+
+.container input {
+    min-width: 600px;
+    height: 2rem;
+    border-radius: 10px;
+    border: solid 2px gray;
+    padding-left: 1rem;
+    color: black;
+    font-size: 1rem;
+    outline: none;
+}
+
+::placeholder {
+    color: black;
+}
+
+button {
+    width: 200px;
+    height: 2rem;
+    background: white;
+    border-radius: 10px;
+    border: solid 2px gray;
+
+}
+
+.todo-container {
+    min-width: 800px;
+    height: 2rem;
+    margin-top: 1%;
+    border-radius: 10px;
+    border: solid 1px gray;
+    padding-left: 1rem;
+    color: black;
+    font-size: 1rem;
+    outline: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.todo-value {
+    display: flex;
+    align-items: center;
+    
+}
+
+.todo-delete {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 2rem;
+    border-radius: 10px;
+    border: solid 1px gray;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    cursor: pointer;
+}
+
